@@ -1,32 +1,36 @@
 @import "tailwindcss";
 
-/* 1. Global Background */
 body {
   background-color: #051122;
   margin: 0;
   -webkit-font-smoothing: antialiased;
 }
 
-/* 2. Distressed Texture for Heading */
+.travel-bg-main {
+  background-image: radial-gradient(circle at 50% 20%, #1a3a5f 0%, #051122 80%);
+  position: relative;
+}
+
+/* Texture overlay for the "ink on paper" feel */
+.travel-bg-main::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.15;
+  pointer-events: none;
+  background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+  mix-blend-mode: overlay;
+  z-index: 1;
+}
+
 .distressed-text {
   background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
   background-clip: text;
   -webkit-background-clip: text;
-  /* Slightly transparent to let the stardust texture feel integrated */
   color: rgba(255, 255, 255, 0.95);
   filter: drop-shadow(0 4px 4px rgba(0,0,0,0.3));
 }
 
 h1.text-\[\#facc15\].distressed-text {
   color: rgba(250, 204, 21, 0.95);
-}
-
-/* 3. Smooth Slider Transitions */
-.swiper-slide {
-  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* 4. Font Consistency */
-h1, h4, span, button {
-  font-family: 'Oswald', sans-serif; /* Ensure you have Oswald 700/900 imported */
 }
